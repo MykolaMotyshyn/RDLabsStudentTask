@@ -17,6 +17,9 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//a[@id='side-menu-hamburger']")
     private WebElementFacade hideMenuButton;
 
+    @FindBy(xpath = "//div[text()='News']")
+    private WebElementFacade newsHeader;
+
     @FindBy(css = "#dashboard__viewNewsOnDashboard")
     private WebElementFacade newsContainer;
 
@@ -34,6 +37,11 @@ public class DashboardPage extends BasePage {
 
     public void clickOnHideMenuButton() {
         log.info("Clicking on the [Hide menu] button");
+        hideMenuButton.waitUntilVisible().waitUntilClickable().click();
+    }
+
+    public void clickOnShowMenuButton() {
+        log.info("Clicking on show menu button");
         hideMenuButton.waitUntilVisible().waitUntilClickable().click();
     }
 

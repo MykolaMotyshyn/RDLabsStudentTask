@@ -23,6 +23,11 @@ public class DashboardPageSteps extends DefaultStepsData {
     }
 
     @Step
+    public String getBlocksTitle() {
+        return dashboardPage.getNewsHeader().getText();
+    }
+
+    @Step
     public void expandContainerClickingOnThreeDots(String sectionName) {
         ItemsContainer itemsContainer = ItemsContainer.getItemsContainerName(sectionName);
         switch (itemsContainer) {

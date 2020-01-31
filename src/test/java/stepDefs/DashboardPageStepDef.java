@@ -25,9 +25,15 @@ public class DashboardPageStepDef extends DefaultStepsData {
     }
 
     //https://jbehave.org/reference/latest/aliases.html
+    // fixed without using aliases.
 
     @When("I click on hide menu button")
     public void whenClickOnTheHideMenuButton() {
+        dashboardPageSteps.clickOnHideMenuButton();
+    }
+
+    @When("I click on show menu button")
+    public void whenIclickOnShowMenuButton() {
         dashboardPageSteps.clickOnHideMenuButton();
     }
 
@@ -47,6 +53,11 @@ public class DashboardPageStepDef extends DefaultStepsData {
     @Then("Legend component appears in $sectionName section")
     public void checkThatLegendAppears(String sectionName) {
         softly.assertThat(dashboardPageSteps.checkThatLegendAppearsIn(sectionName)).as("Legend component not appers").isTrue();
+    }
+
+    @Then("I check that 'News' section is present on Dashboard page with headers News")
+    public void checkThatNewIsSectionIsVisible() {
+        softly.assertThat(dashboardPageSteps.getBlocksTitle());
     }
 
 }
